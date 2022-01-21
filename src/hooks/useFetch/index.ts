@@ -18,12 +18,12 @@ type State<T> = {
 };
 
 /**
- * Simple hook to abstract fetching logic
+ * Simple hook to abstract fetching logic <br />
  * Provides loading state, retry & error message logic
  *
  * @param placeholderData initial data to use until real data is fetched
  * @param fetcher function that returns a Promise. Data will not be loaded until a fetcher fn is provided
- * @param maxRetryCount
+ * @param maxRetryCount max amount of retries before the hook gives up
  * @param retryWaitPeriodMs ms until next retry is attempted
  */
 export default <T>({

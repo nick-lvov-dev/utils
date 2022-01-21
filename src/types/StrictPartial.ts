@@ -1,8 +1,7 @@
 /**
  * Allows missing keys but not explicit undefined unless explicitly allowed
  *
- * <pre>
- * EXAMPLES:
+ * @example
  *
  * type T1 = {
  *   a: number;
@@ -15,7 +14,6 @@
  * testFn({ a: 1 }) // allowed
  * testFn({ b: undefined }) // allowed
  * testFn({ a: undefined, b: 'string' }) // error: type 'undefined' is not assignable to type 'number'
- * </pre>
  */
 export type StrictPartial<T extends object, U extends object> =
   {

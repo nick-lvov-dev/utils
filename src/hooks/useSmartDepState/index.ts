@@ -7,11 +7,11 @@ export type UseSmartDepStateComparator = (a: unknown, b: unknown) => boolean;
 const defaultComparator: UseSmartDepStateComparator = (a, b) => a === b;
 
 /**
- * Custom state hook that only triggers rerender when a used state key is updated
- * Not very useful on its own, but could be used in other custom hooks to avoid unnecessary rerenders
+ * Custom state hook that only triggers rerender when a used state key is updated <br />
+ * Not very useful on its own, but could be used in other custom hooks to avoid unnecessary rerenders <br />
  * Inspired by useSWR https://github.com/vercel/swr/blob/main/src/utils/state.ts
  *
- * @param initialState
+ * @param initialState default state, type can be inferred from the argument
  * @param comparator function to compare state keys. Defaults to simple ===
  */
 export default <TState extends object>(
