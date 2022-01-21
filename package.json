@@ -1,8 +1,8 @@
 {
-  "name": "@nekogd/react-hook-npm-publish-boilerplate",
-  "version": "0.0.0",
-  "description": "Modular utility hooks that we often use grouped in one package. Written in TypeScript, documented, tested and maintained.Disclaimer: at least React 16 is needed (the one with hooks ;) )",
-  "author": "nekogd",
+  "name": "@nld/utils",
+  "version": "0.1.0",
+  "description": "Custom hooks, helpers & types",
+  "author": "nick-lvov-dev",
   "license": "Apache-2.0",
   "repository": "nekogd/react-hook-npm-publish-boilerplate",
   "main": "dist/index.js",
@@ -13,7 +13,8 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "peers": "install-self-peers -- --ignore-scripts"
   },
   "jest": {
     "transform": {
@@ -30,10 +31,13 @@
     ]
   },
   "peerDependencies": {
-    "react": ">= 16.8.0",
-    "react-dom": ">= 16.8.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@team-griffin/install-self-peers": "^1.1.1",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^3.4.1",
     "@types/jest": "^26.0.7",
     "@types/react": "^16.3.13",
@@ -42,8 +46,6 @@
     "babel-runtime": "^6.26.0",
     "eslint-plugin-react-hooks": "^4.0.8",
     "jest": "^26.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "react-test-renderer": "^16.13.1",
     "rollup": "^1.29.0",
     "rollup-plugin-sass": "^1.2.2",
@@ -61,7 +63,5 @@
     "typescript",
     "npm"
   ],
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  }
+  "dependencies": {}
 }

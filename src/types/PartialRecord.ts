@@ -1,0 +1,1 @@
+export type PartialRecord<TKey extends keyof any, TVal> = Partial<Record<TKey, TVal>>
