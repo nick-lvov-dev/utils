@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { Falsy } from '../../types';
-import useSmartDepState from '../useSmartDepState';
-import sleep from '../../helpers/sleep';
-import hasOwnProperty from '../../helpers/hasOwnProperty';
+import { useSmartDepState } from '../useSmartDepState';
+import { sleep } from '../../helpers/sleep';
+import { hasOwnProperty } from '../../helpers/hasOwnProperty';
 
 type Props<T> = {
   fetcher: (() => Promise<T>) | Falsy;
@@ -26,7 +26,7 @@ type State<T> = {
  * @param maxRetryCount max amount of retries before the hook gives up
  * @param retryWaitPeriodMs ms until next retry is attempted
  */
-export default <T>({
+export const useFetch = <T>({
   placeholderData,
   fetcher,
   maxRetryCount = 5,

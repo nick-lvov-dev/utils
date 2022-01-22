@@ -1,20 +1,20 @@
-import sass from 'rollup-plugin-sass'
-import { uglify } from 'rollup-plugin-uglify'
-import typescript from 'rollup-plugin-typescript2'
+import typescript from '@rollup/plugin-typescript';
+import { uglify } from 'rollup-plugin-uglify';
+import pkg from './package.json';
+import merge from 'deepmerge';
+import { createBasicConfig } from '@open-wc/building-rollup';
 
-import pkg from './package.json'
+const baseConfig = createBasicConfig();
 
-export default {
+export default merge (baseConfig ,{
   input: 'src/index.ts',
+  plugins: [typescript(), uglify()],
   output: [
     {
       file: pkg.main,
       format: 'cjs',
-      exports: 'named',
       sourcemap: true,
-      strict: false,
     },
   ],
-  plugins: [sass({ insert: true }), typescript(), uglify()],
   external: ['react', 'react-dom'],
-}
+})

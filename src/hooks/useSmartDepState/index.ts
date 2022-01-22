@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef } from 'react';
-import useRerender from '../useRerender';
+import { useRerender } from '../useRerender';
 import { PartialRecord, StrictPartial } from '../../types';
 
 export type UseSmartDepStateComparator = (a: unknown, b: unknown) => boolean;
@@ -14,7 +14,7 @@ const defaultComparator: UseSmartDepStateComparator = (a, b) => a === b;
  * @param initialState default state, type can be inferred from the argument
  * @param comparator function to compare state keys. Defaults to simple ===
  */
-export default <TState extends object>(
+export const useSmartDepState = <TState extends object>(
   initialState: TState,
   comparator = defaultComparator
 ) => {

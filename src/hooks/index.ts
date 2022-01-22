@@ -1,3 +1,3 @@
-export * from './useSmartDepState'
-export * from './useRerender'
-export * from './useFetch'
+export {useSmartDepState} from './useSmartDepState'
+export {useRerender} from './useRerender'
+export {useFetch} from './useFetch'
