@@ -8,7 +8,7 @@ const baseConfig = createBasicConfig();
 
 export default merge (baseConfig ,{
   input: 'src/index.ts',
-  plugins: [typescript(), uglify()],
+  plugins: [typescript({tsconfig: './tsconfig.json'}), uglify()],
   output: [
     {
       file: pkg.main,
