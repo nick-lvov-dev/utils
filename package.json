@@ -10,14 +10,22 @@
   },
   "main": "dist/index.js",
   "exports": {
-    "./": "./dist/"
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["dist/*.d.ts"]
+    }
   },
   "engines": {
     "node": ">=8",
     "npm": ">=5"
   },
   "scripts": {
-    "build": "rollup -c && tsc --emitDeclarationOnly",
+    "build": "rollup -c && tsc --declaration --emitDeclarationOnly --declarationDir .",
     "start": "rollup -c -w",
     "test": "jest",
     "peers": "install-self-peers -- --ignore-scripts"
