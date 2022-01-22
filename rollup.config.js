@@ -13,7 +13,6 @@ export default merge (baseConfig ,{
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true,
     },
   ],
   external: ['react', 'react-dom'],
