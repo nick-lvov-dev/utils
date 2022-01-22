@@ -9,6 +9,9 @@
     "url": "git+https://github.com/nick-lvov-dev/utils.git"
   },
   "main": "dist/index.js",
+  "exports": {
+    "./": "./dist/"
+  },
   "engines": {
     "node": ">=8",
     "npm": ">=5"
