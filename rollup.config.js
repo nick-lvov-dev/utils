@@ -1,6 +1,5 @@
 import typescript from '@rollup/plugin-typescript';
 import { uglify } from 'rollup-plugin-uglify';
-import pkg from './package.json';
 import merge from 'deepmerge';
 import { createBasicConfig } from '@open-wc/building-rollup';
 
@@ -11,9 +10,11 @@ export default merge (baseConfig ,{
   plugins: [typescript({tsconfig: './tsconfig.json'}), uglify()],
   output: [
     {
-      file: pkg.main,
+      dir: 'dist',
       format: 'cjs',
+      exports: 'named',
     },
   ],
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'tslib'],
+  preserveModules: true,
 })
