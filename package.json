@@ -1,6 +1,6 @@
 {
   "name": "@lvovno/utils",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Custom hooks, helpers & types",
   "author": "nick-lvov-dev",
   "license": "Apache-2.0",
@@ -17,7 +17,9 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["dist/*.d.ts"]
+      "*": [
+        "dist/*.d.ts"
+      ]
     }
   },
   "engines": {
