@@ -3,5 +3,7 @@ dist
 .storybook
 .gitignore
 .prettierrc
+.idea
 rollup.config.js
 tsconfig.json
+src
