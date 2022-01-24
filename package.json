@@ -15,13 +15,6 @@
       "import": "./index.js"
     }
   },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./*.d.ts"
-      ]
-    }
-  },
   "engines": {
     "node": ">=8",
     "npm": ">=5"
