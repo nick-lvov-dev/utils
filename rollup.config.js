@@ -6,6 +6,7 @@ import { createBasicConfig } from '@open-wc/building-rollup';
 const baseConfig = createBasicConfig();
 
 export default merge (baseConfig ,{
+  outputDir: './',
   input: 'src/index.ts',
   plugins: [typescript({tsconfig: './tsconfig.json'}), uglify()],
   output: [
