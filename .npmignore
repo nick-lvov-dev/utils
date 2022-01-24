@@ -4,6 +4,8 @@ dist
 .gitignore
 .prettierrc
 .idea
+.eslintrc.json
+yarn-error.log
 rollup.config.js
 tsconfig.json
 src
