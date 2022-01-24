@@ -1,6 +1,6 @@
 {
   "name": "@lvovno/utils",
-  "version": "0.8.0",
+  "version": "0.10.0",
   "description": "Custom hooks, helpers & types",
   "author": "nick-lvov-dev",
   "license": "Apache-2.0",
