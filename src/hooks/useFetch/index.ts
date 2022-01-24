@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { Falsy } from '../../types';
 import { useSmartDepState } from '../useSmartDepState';
 import { sleep } from '../../helpers/sleep';
@@ -31,7 +31,7 @@ export const useFetch = <T>({
   fetcher,
   maxRetryCount = 5,
   retryWaitPeriodMs = 500,
-}: Props<T>) => {
+}: Props<T>): [State<T>, () => Promise<void>] => {
   const { state, setState } = useSmartDepState<State<T>>({
     data: placeholderData,
     errorMessage: undefined,
@@ -77,5 +77,5 @@ export const useFetch = <T>({
     if (!!fetcher) fetchData();
   }, [fetchData]);
 
-  return state;
+  return useMemo(() => [state, fetchData], [fetchData]);
 };

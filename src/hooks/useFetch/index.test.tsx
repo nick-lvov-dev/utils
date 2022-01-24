@@ -21,7 +21,7 @@ describe('useFetch hook', () => {
 
   it('fetches data on render', async () => {
     const TestComponent = () => {
-      const {data} = useFetch({fetcher: fetchSuccess});
+      const [{data}] = useFetch({fetcher: fetchSuccess});
 
       const renderCount = useRef(0);
       renderCount.current++;
@@ -44,7 +44,7 @@ describe('useFetch hook', () => {
 
   it('correctly updates loading state', async () => {
     const TestComponent = () => {
-      const {data, isLoading} = useFetch({fetcher: fetchSuccess});
+      const [{data, isLoading}] = useFetch({fetcher: fetchSuccess});
 
       const renderCount = useRef(0);
       renderCount.current++;
@@ -70,7 +70,7 @@ describe('useFetch hook', () => {
 
   it('retries data fetch and shows error message', async () => {
     const TestComponent = () => {
-      const {errorMessage} = useFetch({fetcher: fetchError, maxRetryCount: retryCount});
+      const [{errorMessage}] = useFetch({fetcher: fetchError, maxRetryCount: retryCount});
 
       const renderCount = useRef(0);
       renderCount.current++;
@@ -91,5 +91,5 @@ describe('useFetch hook', () => {
 
     expect(screen.getByTestId(errorTestId)).toHaveTextContent(errorMessage);
     expect(screen.getByTestId(renderCountTestId)).toHaveTextContent('2');
-  }, 1000000)
+  }, 5000)
 });

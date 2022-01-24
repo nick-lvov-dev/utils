@@ -1,10 +1,18 @@
 import { useCallback, useMemo, useRef } from 'react';
 import { useRerender } from '../useRerender';
 import { PartialRecord, StrictPartial } from '../../types';
+import { useIsMounted } from '../useIsMounted';
 
 export type UseSmartDepStateComparator = (a: unknown, b: unknown) => boolean;
+export type UseSmartDepStateOptions = {
+  comparator: UseSmartDepStateComparator;
+}
 
 const defaultComparator: UseSmartDepStateComparator = (a, b) => a === b;
+const defaultOptions: UseSmartDepStateOptions = {
+  comparator: defaultComparator,
+}
+
 
 /**
  * Custom state hook that only triggers rerender when a used state key is updated <br />
@@ -12,14 +20,17 @@ const defaultComparator: UseSmartDepStateComparator = (a, b) => a === b;
  * Inspired by useSWR https://github.com/vercel/swr/blob/main/src/utils/state.ts
  *
  * @param initialState default state, type can be inferred from the argument
- * @param comparator function to compare state keys. Defaults to simple ===
+ * @param options
+ * @param options.comparator function to compare state keys. Defaults to simple ===
  */
 export const useSmartDepState = <TState extends object>(
   initialState: TState,
-  comparator = defaultComparator
+  options: Partial<UseSmartDepStateOptions> = defaultOptions,
 ) => {
+  const {comparator} = useMemo(() => ({...options, ...defaultOptions}), []);
   const rerender = useRerender();
   const stateRef = useRef(initialState);
+  const isMountedRef = useIsMounted();
 
   const stateDependenciesRef = useRef(
     Object.keys(initialState).reduce<Record<keyof TState, boolean>>(
@@ -45,7 +56,7 @@ export const useSmartDepState = <TState extends object>(
         }
       }
 
-      if (shouldRerender) {
+      if (shouldRerender && isMountedRef.current) {
         rerender();
       }
     },
