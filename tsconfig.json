@@ -19,5 +19,5 @@
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "rollup.config.js"]
+  "exclude": ["node_modules", "dist", "rollup.config.js", "src/**/*.test.ts"]
 }

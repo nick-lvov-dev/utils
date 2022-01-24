@@ -10,7 +10,7 @@ export default merge (baseConfig ,{
   plugins: [typescript({tsconfig: './tsconfig.json'}), uglify()],
   output: [
     {
-      dir: 'dist',
+      dir: './',
       format: 'cjs',
       exports: 'named',
     },

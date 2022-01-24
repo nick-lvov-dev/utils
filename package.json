@@ -8,20 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/nick-lvov-dev/utils.git"
   },
-  "main": "dist/index.js",
-  "exports": {
-    "./*": {
-      "types": "./*.d.ts",
-      "import": "./dist/*.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./*.d.ts"
-      ]
-    }
-  },
+  "main": "./index.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
